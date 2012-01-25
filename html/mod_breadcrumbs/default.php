@@ -29,11 +29,11 @@
 						echo '</li>';
 					}
 					if($i < $count -2){
-						echo ' '.$separator.' ';
+						echo $separator;
 					}
 				}  elseif ($params->get('showLast', 1)) { // when $i == $count -1 and 'showLast' is true
 					if($i > 0){
-						echo ' '.$separator.' ';
+						echo $separator;
 					}
 					 echo '<li>';
 					echo $list[$i]->name;
