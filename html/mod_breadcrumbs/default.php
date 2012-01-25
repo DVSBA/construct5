@@ -31,7 +31,7 @@
 					if($i < $count -2){
 						echo ' '.$separator.' ';
 					}
-				}  else if ($params->get('showLast', 1)) { // when $i == $count -1 and 'showLast' is true
+				}  elseif ($params->get('showLast', 1)) { // when $i == $count -1 and 'showLast' is true
 					if($i > 0){
 						echo ' '.$separator.' ';
 					}
