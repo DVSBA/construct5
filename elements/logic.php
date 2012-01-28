@@ -47,6 +47,7 @@ $googleWebFontTargets2	= htmlspecialchars($this->params->get('googleWebFontTarge
 $googleWebFont3			= $this->params->get('googleWebFont3');
 $googleWebFontSize3		= htmlspecialchars($this->params->get('googleWebFontSize3'));
 $googleWebFontTargets3	= htmlspecialchars($this->params->get('googleWebFontTargets3'));
+$gridSystem				= $this->params->get('gridSystem');
 $IECSS3					= $this->params->get('IECSS3');
 $IECSS3Targets			= htmlspecialchars($this->params->get('IECSS3Targets'));
 $IE6TransFix			= $this->params->get('IE6TransFix');
@@ -71,12 +72,12 @@ if ( $isOnward && $loadMoo ) {
 }
 
 // Behavior.mootools is depreciated and may be removed after 1.6
-if ( $isPresent && $loadMoo ) {	
+if ( $isPresent && $loadMoo ) {
 	JHtml::_('behavior.mootools');
 }
 
 // Enable modal pop-ups
-if ( $loadMoo && $loadModal ) {	
+if ( $loadMoo && $loadModal ) {
 	JHtml::_('behavior.modal');
 }
 
@@ -87,7 +88,7 @@ if ( !$loadMoo ) {
 	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools.js']);
 	unset($head['scripts'][$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
 	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-core.js']);
-	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-more.js']);		
+	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-more.js']);
 	$this->setHeadData($head);
 }
 
@@ -194,7 +195,7 @@ $columnGroupBetaCount = $column3Count + $column4Count;
 if ($columnGroupBetaCount) : $columnGroupBetaClass = 'count-'.$columnGroupBetaCount; endif;
 
 $columnLayout= 'main-only';
-	
+
 if (($columnGroupAlphaCount > 0 ) && ($columnGroupBetaCount == 0)) :
 	$columnLayout = 'alpha-'.$columnGroupAlphaCount.'-main';
 elseif (($columnGroupAlphaCount > 0) && ($columnGroupBetaCount > 0)) :
@@ -202,14 +203,14 @@ elseif (($columnGroupAlphaCount > 0) && ($columnGroupBetaCount > 0)) :
 elseif (($columnGroupAlphaCount == 0) && ($columnGroupBetaCount > 0)) :
 	$columnLayout = 'main-beta-'.$columnGroupBetaCount;
 endif;
-	
+
 #-------------------------------- Item ID ---------------------------------#
 
 $itemId = JRequest::getInt('Itemid', 0);
 
 #------------------------------- Article ID -------------------------------#
 
-if ($view == 'article') 
+if ($view == 'article')
 $articleId = JRequest::getInt('id');
 else ($articleId = NULL);
 
@@ -233,9 +234,9 @@ function getSection($id) {
 			$sql = "SELECT sectionid FROM #__content WHERE id = ".$temp[0];
 			$database->setQuery( $sql );
 			return $database->loadResult();
-		}		
+		}
 	}
-	
+
 $sectionId = getSection(JRequest::getInt('id'));
 
 #------------------------------ Category ID -------------------------------#
@@ -247,15 +248,15 @@ function getCategory($id) {
 		}
 	  elseif((JRequest::getCmd('view', 0) == "category") || (JRequest::getCmd('view', 0) == "categories")) {
 			return $id;
-		}		
+		}
 	  elseif(JRequest::getCmd('view', 0) == "article") {
 			$temp = explode(":",$id);
 			$sql = "SELECT catid FROM #__content WHERE id = ".$temp[0];
 			$database->setQuery( $sql );
 			return $database->loadResult();
-		}		
+		}
 	}
-	
+
 $catId = getCategory(JRequest::getInt('id'));
 
 #------------------------------------- Alias -------------------------------------#
@@ -293,6 +294,9 @@ $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon
 // Style sheets
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/print.css','text/css','print');
+if ($gridSystem !='-1') {
+	$doc->addStyleSheet($template.'/css/grids/'.$gridSystem,'text/css','screen');
+}
 if ($customStyleSheet !='-1') {
 	$doc->addStyleSheet($template.'/css/'.$customStyleSheet,'text/css','screen');
 }
@@ -305,7 +309,7 @@ if ($enableSwitcher) {
 	$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/diagnostic.css" type="text/css" media="screen" title="diagnostic" />');
 	$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/wireframe.css" type="text/css" media="screen" title="wireframe" />');
 	$doc->addScript($template.'/js/styleswitch.js');
-} 	
+}
 
 // Typography
 if ($googleWebFont) {
@@ -360,9 +364,9 @@ $doc->addCustomTag("\n".'  <!--[if lt IE 7]>');
 $doc->addCustomTag("\n".'  <link rel="stylesheet" href="'.$template.'/css/ie6.css" type="text/css" media="screen" />');
 $doc->addCustomTag("\n".'  <style type="text/css">');
 $doc->addCustomTag("\n".'  body {text-align:center;}');
-$doc->addCustomTag("\n".'  #body-container {text-align:left;}');	
+$doc->addCustomTag("\n".'  #body-container {text-align:left;}');
 if ($useStickyFooter) {
-	$doc->addCustomTag("\n".'  body.sticky-footer #footer-push {display:table;height:100%;}');		
+	$doc->addCustomTag("\n".'  body.sticky-footer #footer-push {display:table;height:100%;}');
 }
 if(!$fullWidth){
 	$doc->addCustomTag("\n".'  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
@@ -376,3 +380,4 @@ if($IE6TransFix) {
 	$doc->addCustomTag("\n".'  <script type="text/javascript">DD_belatedPNG.fix(\''.$IE6TransFixTargets.'\');</script>');
 }
 $doc->addCustomTag('<![endif]-->');
+
