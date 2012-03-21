@@ -7,8 +7,6 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// Joomla 1.6+ only
-
 JHtml::_('behavior.keepalive');
 ?>
 
@@ -49,7 +47,7 @@ JHtml::_('behavior.keepalive');
 		</fieldset>
 	</form>
 </section>
-<section class="registration<?php echo $this->pageclass_sfx?>">
+<section>
 	<ul>
 		<li>
 			<a href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>">
@@ -69,3 +67,4 @@ JHtml::_('behavior.keepalive');
 		<?php endif; ?>
 	</ul>
 </section>
+
