@@ -7,9 +7,15 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
+// Joomla 1.6+ only
+
 $class = ' class="first"';
-if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
-?><ol>
+
+?>
+
+<?php if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) : ?>
+
+    <ol>
     <?php foreach($this->items[$this->parent->id] as $id => $item) : ?>
 	    <?php
 	    if($this->params->get('show_empty_categories_cat') || $item->numitems || count($item->getChildren())) :
@@ -27,7 +33,7 @@ if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
 		    <?php if ($this->params->get('show_subcat_desc_cat') == 1) :?>
 			    <?php if ($item->description) : ?>
 				    <section class="category-desc">
-					    <?php echo JHtml::_('content.prepare', $item->description, '', 'com_contact.categories'); ?>
+						<?php echo JHtml::_('content.prepare', $item->description, '', 'com_contact.categories'); ?>
 				    </section>
 			    <?php endif; ?>
             <?php endif; ?>
@@ -52,5 +58,4 @@ if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
 	    <?php endif; ?>
     <?php endforeach; ?>
     </ol>
-<?php endif;
-
+<?php endif; ?>
