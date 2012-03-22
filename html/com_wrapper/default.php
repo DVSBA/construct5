@@ -38,6 +38,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	        src="<?php echo htmlspecialchars($this->wrapper->url); ?>"
 	        width="<?php echo htmlspecialchars($this->params->get('width')); ?>"
 	        height="<?php echo htmlspecialchars($this->params->get('height')); ?>"
+			frameborder="<?php echo $this->escape($this->params->get('frameborder', 1)); ?>"
 	        scrolling="<?php echo htmlspecialchars($this->params->get('scrolling')); ?>"
 	        class="wrapper<?php echo $this->pageclass_sfx; ?>">
 	        <?php echo JText::_('COM_WRAPPER_NO_IFRAMES'); ?>

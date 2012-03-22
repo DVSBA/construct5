@@ -17,9 +17,9 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
         <?php if ($params->get('greeting')) : ?>
             <p class="login-greeting">
             <?php if($params->get('name') == 0) : {
-	            echo JText::sprintf('MOD_LOGIN_HINAME', $user->get('name'));
+	            echo JText::sprintf('MOD_LOGIN_HINAME', htmlspecialchars($user->get('name')));
             } else : {
-	            echo JText::sprintf('MOD_LOGIN_HINAME', $user->get('username'));
+	            echo JText::sprintf('MOD_LOGIN_HINAME', htmlspecialchars($user->get('username')));
             } endif; ?>
             </p>
         <?php endif; ?>
