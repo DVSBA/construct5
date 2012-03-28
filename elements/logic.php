@@ -16,10 +16,6 @@ if (JFile::exists(dirname(__FILE__).'/helper.php')) {
 $app 					= JFactory::getApplication();
 // Returns a reference to the global document object
 $doc 					= JFactory::getDocument();
-// Is version 1.6 and later
-$isOnward = (substr(JVERSION, 0, 3) >= '1.6');
-// Is version 1.5
-$isPresent = (substr(JVERSION, 0, 3) == '1.5');
 // Returns an array of any system messages
 $messageQueue = count($app->getMessageQueue());
 // Define relative path to the  current template directory
@@ -67,13 +63,8 @@ $useStickyFooter 		= $this->params->get('useStickyFooter');
 $this->setGenerator($setGeneratorTag);
 
 // Enable Mootols
-if ( $isOnward && $loadMoo ) {
+if ( $loadMoo ) {
 	JHtml::_('behavior.framework', true);
-}
-
-// Behavior.mootools is depreciated and may be removed after 1.6
-if ( $isPresent && $loadMoo ) {
-	JHtml::_('behavior.mootools');
 }
 
 // Enable modal pop-ups
@@ -87,8 +78,6 @@ if ( !$loadMoo ) {
 	unset($doc->_scripts[$this->baseurl . '/media/system/js/mootools-more.js']);
 	unset($doc->_scripts[$this->baseurl . '/media/system/js/core.js']);
 	unset($doc->_scripts[$this->baseurl . '/media/system/js/caption.js']);
-	unset($doc->_scripts[$this->baseurl . '/media/system/js/mootools.js']);
-	unset($doc->_scripts[$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
 }
 
 // Change Google Web Font name for CSS
