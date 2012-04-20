@@ -56,9 +56,9 @@
 	<p>For more information and support, visit <a href="http://construct-framework.com/" target="_blank">Construct Framework</a></p>
 	]]></description>
 	<files>
-		<filename>css/grids/construct.css</filename>
-		<filename>css/grids/construct-responsive.css</filename>
-		<filename>css/grids/index.html</filename>
+		<folder>css/grids</folder>
+		<filename>css/construct-dark.css</filename>
+		<filename>css/construct-light.css</filename>
 		<filename>css/diagnostic.css</filename>
 		<filename>css/editor.css</filename>
 		<filename>css/ie6.css</filename>
