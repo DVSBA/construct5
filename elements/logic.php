@@ -30,34 +30,31 @@ $user = JFactory::getUser();
 $view = JRequest::getCmd('view');
 
 // Define shortcuts for template parameters
-$customStyleSheet = $this->params->get('customStyleSheet');
-$enableSwitcher = $this->params->get('enableSwitcher');
-$fluidMedia = $this->params->get('fluidMedia');
-$fullWidth = $this->params->get('fullWidth');
-$googleWebFont = $this->params->get('googleWebFont');
-$googleWebFontSize = htmlspecialchars($this->params->get('googleWebFontSize'));
-$googleWebFontTargets = htmlspecialchars($this->params->get('googleWebFontTargets'));
-$googleWebFont2 = $this->params->get('googleWebFont2');
-$googleWebFontSize2 = htmlspecialchars($this->params->get('googleWebFontSize2'));
+$customStyleSheet      = $this->params->get('customStyleSheet');
+$enableSwitcher        = $this->params->get('enableSwitcher');
+$fluidMedia            = $this->params->get('fluidMedia');
+$fullWidth             = $this->params->get('fullWidth');
+$googleWebFont         = $this->params->get('googleWebFont');
+$googleWebFontTargets  = htmlspecialchars($this->params->get('googleWebFontTargets'));
+$googleWebFont2        = $this->params->get('googleWebFont2');
 $googleWebFontTargets2 = htmlspecialchars($this->params->get('googleWebFontTargets2'));
-$googleWebFont3 = $this->params->get('googleWebFont3');
-$googleWebFontSize3 = htmlspecialchars($this->params->get('googleWebFontSize3'));
+$googleWebFont3        = $this->params->get('googleWebFont3');
 $googleWebFontTargets3 = htmlspecialchars($this->params->get('googleWebFontTargets3'));
-$gridSystem = $this->params->get('gridSystem');
-$IECSS3 = $this->params->get('IECSS3');
-$IECSS3Targets = htmlspecialchars($this->params->get('IECSS3Targets'));
-$IE6TransFix = $this->params->get('IE6TransFix');
-$IE6TransFixTargets = htmlspecialchars($this->params->get('IE6TransFixTargets'));
-$loadMoo = $this->params->get('loadMoo');
-$loadModal = $this->params->get('loadModal');
-$loadjQuery = $this->params->get('loadjQuery');
-$setGeneratorTag = htmlspecialchars($this->params->get('setGeneratorTag'));
-$showDiagnostics = $this->params->get('showDiagnostics');
-$siteWidth = htmlspecialchars($this->params->get('siteWidth'));
-$siteWidthType = $this->params->get('siteWidthType');
-$siteWidthUnit = $this->params->get('siteWidthUnit');
-$stickyFooterHeight = htmlspecialchars($this->params->get('stickyFooterHeight'));
-$useStickyFooter = $this->params->get('useStickyFooter');
+$gridSystem            = $this->params->get('gridSystem');
+$IECSS3                = $this->params->get('IECSS3');
+$IECSS3Targets         = htmlspecialchars($this->params->get('IECSS3Targets'));
+$IE6TransFix           = $this->params->get('IE6TransFix');
+$IE6TransFixTargets    = htmlspecialchars($this->params->get('IE6TransFixTargets'));
+$loadMoo               = $this->params->get('loadMoo');
+$loadModal             = $this->params->get('loadModal');
+$loadjQuery            = $this->params->get('loadjQuery');
+$setGeneratorTag       = htmlspecialchars($this->params->get('setGeneratorTag'));
+$showDiagnostics       = $this->params->get('showDiagnostics');
+$siteWidth             = htmlspecialchars($this->params->get('siteWidth'));
+$siteWidthType         = $this->params->get('siteWidthType');
+$siteWidthUnit         = $this->params->get('siteWidthUnit');
+$stickyFooterHeight    = htmlspecialchars($this->params->get('stickyFooterHeight'));
+$useStickyFooter       = $this->params->get('useStickyFooter');
 
 // Change generator tag
 $this->setGenerator($setGeneratorTag);
@@ -305,15 +302,15 @@ if ($enableSwitcher) {
 // Typography
 if ($googleWebFont) {
     $doc->addStyleSheet('http://fonts.googleapis.com/css?family=' . $googleWebFont . '');
-    $doc->addStyleDeclaration($googleWebFontTargets . ' {font-family:' . $googleWebFontFamily . ', serif;font-size:' . $googleWebFontSize . ';}');
+    $doc->addStyleDeclaration($googleWebFontTargets . ' {font-family:' . $googleWebFontFamily . ', serif;}');
 }
 if ($googleWebFont2) {
     $doc->addStyleSheet('http://fonts.googleapis.com/css?family=' . $googleWebFont2 . '');
-    $doc->addStyleDeclaration($googleWebFontTargets2 . ' {font-family:' . $googleWebFontFamily2 . ', serif;font-size:' . $googleWebFontSize2 . ';}');
+    $doc->addStyleDeclaration($googleWebFontTargets2 . ' {font-family:' . $googleWebFontFamily2 . ', serif;}');
 }
 if ($googleWebFont3) {
     $doc->addStyleSheet('http://fonts.googleapis.com/css?family=' . $googleWebFont3 . '');
-    $doc->addStyleDeclaration($googleWebFontTargets3 . ' {font-family:' . $googleWebFontFamily3 . ', serif;font-size:' . $googleWebFontSize3 . ';}');
+    $doc->addStyleDeclaration($googleWebFontTargets3 . ' {font-family:' . $googleWebFontFamily3 . ', serif;}');
 }
 
 // JavaScript
